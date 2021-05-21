@@ -10,7 +10,7 @@ export const SearchScreen = ({history}) => {
     const location = useLocation();
     const {q = ''} = queryString.parse(location.search);
     
-    const [{searchText}, setInputValue, reset] = useForm({searchText: q});
+    const [{searchText}, setInputValue] = useForm({searchText: q});
     const filteredHeroes = useMemo(() => getHeroesByName(q), [q ]);
     
     const handleSearch = (e) => {
