@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
+
 export const LoginScreen = ({history}) => {
-
+    
     const {dispatch} = useContext(AuthContext);
-
+    const lastPath = localStorage.getItem('lastPath') || '/ ';
     const handleLogin = ( ) => {
         
         dispatch({
@@ -14,7 +15,7 @@ export const LoginScreen = ({history}) => {
                 name: 'Giordan'
             }
         });
-        history.replace('/');
+        history.replace(lastPath);
     }
 
     return (

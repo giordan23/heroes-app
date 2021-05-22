@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
@@ -8,11 +8,13 @@ export const Navbar = () => {
 
     const {user:{name}, dispatch} = useContext(AuthContext);
 
+    const history = useHistory();
+
     const logoutHandler = () => {
         dispatch({
             type: types.logout
         });
-        <Redirect to='/login'/>;
+        history.replace('/login');
     };
     
     return (
